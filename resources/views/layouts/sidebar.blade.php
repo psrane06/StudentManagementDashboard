@@ -1,83 +1,115 @@
-<div class="sidebar" data-color="orange">
-  <!--
-    Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
--->
-  <div class="logo">
-    <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-      {{ __('CT') }}
-    </a>
-    <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
-    </a>
-  </div>
-  <div class="sidebar-wrapper" id="sidebar-wrapper">
-    <ul class="nav">
-      <li class="@if ($activePage == 'home') active @endif">
-        <a href="{{ route('home') }}">
-          <i class="now-ui-icons design_app"></i>
-          <p>{{ __('Dashboard') }}</p>
-        </a>
-      </li>
-      <li>
-        <a data-toggle="collapse" href="#laravelExamples">
-            <i class="fab fa-laravel"></i>
-          <p>
-            {{ __("Laravel Examples") }}
-            <b class="caret"></b>
-          </p>
-        </a>
-        <div class="collapse show" id="laravelExamples">
-          <ul class="nav">
-            <li class="@if ($activePage == 'profile') active @endif">
-              <a href="{{ route('profile.edit') }}">
-                <i class="now-ui-icons users_single-02"></i>
-                <p> {{ __("User Profile") }} </p>
-              </a>
-            </li>
-            <li class="@if ($activePage == 'users') active @endif">
-              <a href="{{ route('user.index') }}">
-                <i class="now-ui-icons design_bullet-list-67"></i>
-                <p> {{ __("User Management") }} </p>
-              </a>
-            </li>
-          </ul>
+{{-- LEFT SIDEBAR WITH OUT FOOTER --}}
+{{--  ====================================
+              ——— LEFT SIDEBAR WITH OUT FOOTER
+            ===================================== --}}
+<aside class="left-sidebar sidebar-dark" id="left-sidebar">
+    <div id="sidebar" class="sidebar sidebar-with-footer">
+        <!-- Aplication Brand -->
+        <div class="app-brand">
+            <a href="{{ route('dashboard') }}">
+                <x-application-logo class="block h-9 w-auto fill-current me-3" />
+                <span class="brand-name">E-Studies</span>
+            </a>
         </div>
-      <li class="@if ($activePage == 'icons') active @endif">
-        <a href="{{ route('page.index','icons') }}">
-          <i class="now-ui-icons education_atom"></i>
-          <p>{{ __('Icons') }}</p>
-        </a>
-      </li>
-      <li class = "@if ($activePage == 'maps') active @endif">
-        <a href="{{ route('page.index','maps') }}">
-          <i class="now-ui-icons location_map-big"></i>
-          <p>{{ __('Maps') }}</p>
-        </a>
-      </li>
-      <li class = " @if ($activePage == 'notifications') active @endif">
-        <a href="{{ route('page.index','notifications') }}">
-          <i class="now-ui-icons ui-1_bell-53"></i>
-          <p>{{ __('Notifications') }}</p>
-        </a>
-      </li>
-      <li class = " @if ($activePage == 'table') active @endif">
-        <a href="{{ route('page.index','table') }}">
-          <i class="now-ui-icons design_bullet-list-67"></i>
-          <p>{{ __('Table List') }}</p>
-        </a>
-      </li>
-      <li class = "@if ($activePage == 'typography') active @endif">
-        <a href="{{ route('page.index','typography') }}">
-          <i class="now-ui-icons text_caps-small"></i>
-          <p>{{ __('Typography') }}</p>
-        </a>
-      </li>
-      <li class = "">
-        <a href="{{ route('page.index','upgrade') }}" class="bg-info">
-          <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-          <p>{{ __('Upgrade to PRO') }}</p>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+        <!-- begin sidebar scrollbar -->
+        <div class="sidebar-left" data-simplebar style="height: 100%;">
+            <!-- sidebar menu -->
+            <ul class="nav sidebar-inner" id="sidebar-menu">
+
+                <li class="active">
+                    <a class="sidenav-item-link" href="index.html">
+                        <i class="mdi mdi-briefcase-account-outline"></i>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="analytics.html">
+                        <i class="mdi mdi-chart-line"></i>
+                        <span class="nav-text">Badges</span>
+                    </a>
+                </li>
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#email"
+                        aria-expanded="false" aria-controls="email">
+                        <i class="mdi mdi-email"></i>
+                        <span class="nav-text">My Courses</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="email" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+
+                            <li>
+                                <a class="sidenav-item-link" href="email-inbox.html">
+                                    <span class="nav-text">All Course</span>
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="sidenav-item-link" href="email-details.html">
+                                    <span class="nav-text">Completed</span>
+
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="sidenav-item-link" href="email-compose.html">
+                                    <span class="nav-text">On Going</span>
+
+                                </a>
+                            </li>
+
+                        </div>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="index.html">
+                        <i class="mdi mdi-briefcase-account-outline"></i>
+                        <span class="nav-text">Completed Courses</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="analytics.html">
+                        <i class="mdi mdi-chart-line"></i>
+                        <span class="nav-text">Code Challenges</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="analytics.html">
+                        <i class="mdi mdi-chart-line"></i>
+                        <span class="nav-text">Community</span>
+                    </a>
+                </li>
+
+                <li class="section-title">
+                    SETTINGS
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="user-profile.html">
+                        <i class="mdi mdi-chart-line"></i>
+                        <span class="nav-text">Help</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="user-activities.html">
+                        <i class="mdi mdi-chart-line"></i>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="sidenav-item-link" href="user-profile-settings.html">
+                        <i class="mdi mdi-chart-line"></i>
+                        <span class="nav-text">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>
